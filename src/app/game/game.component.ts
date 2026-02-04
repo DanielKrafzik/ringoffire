@@ -10,6 +10,7 @@ import { Game } from '../../models/game';
 })
 export class GameComponent {
   pickCardAnimation = false;
+  currentCard: string = '';
   game: Game = new Game();
 
   ngOnInit(): void {
@@ -18,11 +19,17 @@ export class GameComponent {
 
   newGame() {
     this.game = new Game();
-    console.log(this.game);
-    
   }
 
   drawCard() {
-    this.pickCardAnimation = true;
+    if(!this.pickCardAnimation) {
+      this.currentCard = this.game.stack.pop() as string;
+      this.pickCardAnimation = true;
+
+      setTimeout(() => {
+        this.pickCardAnimation = false;
+        this.game.playedCards.push(this.currentCard);
+      }, 1500);
+    }
   }
 }
