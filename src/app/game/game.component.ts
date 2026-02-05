@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Game } from '../../models/game';
+import { PlayerComponent } from '../player/player.component';
 
 @Component({
   selector: 'app-game',
-  imports: [CommonModule],
+  imports: [CommonModule, PlayerComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })
@@ -28,8 +29,8 @@ export class GameComponent {
 
       setTimeout(() => {
         this.pickCardAnimation = false;
-        this.game.playedCards.push(this.currentCard);
-      }, 1500);
+      this.game.playedCards.push(this.currentCard);
+      }, 1000);
     }
   }
 }
