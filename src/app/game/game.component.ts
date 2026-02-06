@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Game } from '../../models/game';
 import { PlayerComponent } from '../player/player.component';
+import { GameDescriptionComponent } from '../game-description/game-description.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,7 +10,7 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 
 @Component({
   selector: 'app-game',
-  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule],
+  imports: [CommonModule, PlayerComponent, MatButtonModule, MatIconModule, GameDescriptionComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })
