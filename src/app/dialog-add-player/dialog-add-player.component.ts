@@ -1,5 +1,5 @@
 import { Component, viewChildren } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -13,8 +13,10 @@ import { MatInputModule } from '@angular/material/input';
 export class DialogAddPlayerComponent {
   name: string = '';
 
+  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>) { }
+
   onNoClick(): void {
-    // Close the dialog without doing anything
+    this.dialogRef.close();
   }
 
   addPlayer(): void {
